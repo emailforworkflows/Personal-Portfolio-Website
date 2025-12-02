@@ -234,6 +234,52 @@ export const workExperience = [
   }
 ];
 
+export const workSamples = [
+  {
+    id: 1,
+    title: "DigiDoctor - National Doctor Directory",
+    client: "NDHM (National Health Authority)",
+    category: "Product Brochure",
+    description: "Marketing collateral for India's National Doctor Directory - a comprehensive platform for doctor registration and verification under the National Digital Health Mission.",
+    type: "pdf",
+    thumbnail: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/1ee8zbic_NDHM%20-%20DigiDoctor.pdf",
+    fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/1ee8zbic_NDHM%20-%20DigiDoctor.pdf"
+  },
+  {
+    id: 2,
+    title: "Health Facilities Registry",
+    client: "NDHM (National Health Authority)",
+    category: "Product Brochure",
+    description: "Marketing brochure for the National Medical Facility Directory - enabling healthcare facilities to register and be discoverable within India's digital health ecosystem.",
+    type: "pdf",
+    thumbnail: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/3bkc7785_NDHM-Health%20Facilities.pdf",
+    fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/3bkc7785_NDHM-Health%20Facilities.pdf"
+  },
+  {
+    id: 3,
+    title: "Health ID - Unique Health Identifier",
+    client: "NDHM (National Health Authority)",
+    category: "Product Brochure",
+    description: "Marketing collateral for India's Unique Health ID system - empowering citizens with a digital health identity to manage their medical records and access healthcare services.",
+    type: "pdf",
+    thumbnail: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/r4ny6q71_NDHM-Health%20ID.pdf",
+    fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/r4ny6q71_NDHM-Health%20ID.pdf"
+  },
+  {
+    id: 4,
+    title: "Dynamic Digital Signage Solutions",
+    client: "HCL Infosystems Ltd.",
+    category: "Product Brochure",
+    description: "Comprehensive product brochure for HCL's Dynamic Digital Signage Solutions (DS)2 - covering digital signage facts, architecture, application domains across retail, hospitality, healthcare, and government sectors.",
+    type: "image",
+    thumbnail: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/sy5ks13a_HCL%20COVER.jpg",
+    fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/sy5ks13a_HCL%20COVER.jpg",
+    additionalImages: [
+      "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/28o402t7_HCL%20%28Inner%20Pages%29.jpg"
+    ]
+  }
+];
+
 export const caseStudies = [
   {
     id: 1,
