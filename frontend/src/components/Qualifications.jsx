@@ -35,106 +35,105 @@ const Qualifications = () => {
       className="py-16 md:py-24 bg-slate-50"
       aria-labelledby="qualifications-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="mb-12">
           <h2
             id="qualifications-heading"
-            className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4"
+            className="text-2xl md:text-3xl font-bold text-slate-900 mb-1"
           >
-            Certifications & Education
+            Qualifications & Certifications
           </h2>
-          <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <div className="w-12 h-1 bg-slate-900 mb-6"></div>
+          <p className="text-slate-600 max-w-2xl">
             Continuous learning across product management, AI, project leadership, and cybersecurity domains.
           </p>
-          
-          {/* LinkedIn Badge */}
-          <div className="mt-6 inline-flex items-center space-x-2 px-4 py-2 bg-white rounded-full border border-slate-200 shadow-sm">
-            <Award className="w-5 h-5 text-blue-600" />
-            <span className="text-sm font-medium text-slate-700">100+ LinkedIn Certifications</span>
-          </div>
         </div>
 
-        {/* Tabs Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {certificationCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveTab(category.id)}
-              className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                activeTab === category.id
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:border-blue-300 hover:text-blue-600'
-              }`}
-              aria-selected={activeTab === category.id}
-              role="tab"
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Certifications Content */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+        {/* Education Section */}
+        <div className="mb-12">
           <div className="flex items-center space-x-3 mb-6">
-            <Award className="w-6 h-6 text-blue-600" />
-            <h3 className="text-xl font-semibold text-slate-900">
-              {certificationCategories.find(c => c.id === activeTab)?.label}
-            </h3>
+            <div className="p-2 bg-blue-100 rounded-lg">
+              <GraduationCap className="text-blue-700" size={24} />
+            </div>
+            <h3 className="text-xl font-semibold text-slate-900">Education</h3>
           </div>
-
-          <div className="space-y-3">
-            {certifications[activeTab]?.map((cert, index) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {education.map((edu, index) => (
               <div
                 key={index}
-                className={`flex items-center justify-between p-4 rounded-xl transition-all duration-200 ${
-                  cert.isHeader 
-                    ? 'bg-transparent' 
-                    : 'bg-slate-50 hover:bg-slate-100'
-                }`}
+                className="bg-white rounded-xl p-6 shadow-sm border border-slate-100"
               >
-                <div className="flex items-center space-x-3 flex-1 min-w-0">
-                  {!cert.isHeader && <IssuerLogo issuer={cert.issuer} />}
-                  <div className="flex-1 min-w-0">
-                    <p className={`text-slate-800 ${cert.isHeader ? 'font-medium' : ''}`}>
-                      {cert.isHeader ? cert.name : `${cert.name}${cert.id ? ` (ID: ${cert.id})` : ''} - ${cert.issuer}${cert.date ? ` (${cert.date})` : ''}`}
-                    </p>
-                  </div>
-                </div>
-                {cert.hasLink && !cert.isHeader && (
-                  <button
-                    className="p-2 text-slate-400 hover:text-blue-600 transition-colors"
-                    aria-label={`View ${cert.name} certificate`}
-                  >
-                    <ExternalLink size={18} />
-                  </button>
-                )}
+                <h4 className="font-semibold text-slate-900 mb-1">{edu.degree}</h4>
+                <p className="text-blue-700 text-sm font-medium mb-2">{edu.specialization}</p>
+                <p className="text-slate-600 text-sm">{edu.institution}</p>
+                <p className="text-slate-500 text-sm mt-2">{edu.period}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Education Section */}
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
-          {education.map((edu, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl p-6 shadow-md border border-slate-100 hover:shadow-lg transition-shadow"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
-                  <GraduationCap className="text-blue-700" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-1">{edu.degree}</h4>
-                  <p className="text-blue-700 text-sm font-medium mb-2">{edu.specialization}</p>
-                  <p className="text-slate-600 text-sm">{edu.institution}</p>
-                  <p className="text-slate-500 text-sm mt-2">{edu.period}</p>
-                </div>
-              </div>
+        {/* Certifications Section */}
+        <div>
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="p-2 bg-green-100 rounded-lg">
+              <Award className="text-green-700" size={24} />
             </div>
-          ))}
+            <h3 className="text-xl font-semibold text-slate-900">Professional Certifications</h3>
+            <span className="text-sm text-slate-500 ml-2">(100+ LinkedIn Certifications)</span>
+          </div>
+
+          {/* Tabs Navigation */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {certificationCategories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveTab(category.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  activeTab === category.id
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:border-blue-300 hover:text-blue-600'
+                }`}
+                aria-selected={activeTab === category.id}
+                role="tab"
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Certifications Content */}
+          <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6">
+            <div className="space-y-2">
+              {certifications[activeTab]?.map((cert, index) => (
+                <div
+                  key={index}
+                  className={`flex items-center justify-between p-3 rounded-lg transition-all duration-200 ${
+                    cert.isHeader 
+                      ? 'bg-transparent' 
+                      : 'bg-slate-50 hover:bg-slate-100'
+                  }`}
+                >
+                  <div className="flex items-center space-x-3 flex-1 min-w-0">
+                    {!cert.isHeader && <IssuerLogo issuer={cert.issuer} />}
+                    <div className="flex-1 min-w-0">
+                      <p className={`text-slate-800 text-sm ${cert.isHeader ? 'font-medium' : ''}`}>
+                        {cert.isHeader ? cert.name : `${cert.name}${cert.id ? ` (ID: ${cert.id})` : ''} - ${cert.issuer}${cert.date ? ` (${cert.date})` : ''}`}
+                      </p>
+                    </div>
+                  </div>
+                  {cert.hasLink && !cert.isHeader && (
+                    <button
+                      className="p-2 text-slate-400 hover:text-blue-600 transition-colors"
+                      aria-label={`View ${cert.name} certificate`}
+                    >
+                      <ExternalLink size={16} />
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
