@@ -2,41 +2,29 @@
 
 export const profileData = {
   name: "Kumar Abhinav",
-  title: "Product Activation & Go-to-Market Leader",
-  subtitle: "Measurement & Analytics Expert",
+  title: "Product Management Executive",
+  subtitle: "Software & Hardware Product Development Leader",
+  tagline: "End-to-End Product Development | Go-to-Market Strategy | €50M+ Business Impact",
   email: "kumarforpm@outlook.com",
   phone: "+91 9873966405",
   linkedIn: "https://app.emergent.sh/register?ref=kuma647652",
   photo: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/2a0lyh1c_Kumar_Abhinav%20a.jpg",
-  summary: "Product leader with 20+ years driving go-to-market activation, measurement solutions, and cross-functional stakeholder engagement across Asia, Europe, Americas, and Middle East. Proven record influencing executive leadership, sales teams, and external partners to scale product adoption and drive customer success. Expert in translating complex measurement and analytics concepts into compelling narratives that position products as market must-haves. Delivered €50M+ business impact through strategic product activation, sales enablement, and data-driven measurement solutions across telecom, healthcare, and enterprise sectors.",
-  location: "Delhi, India"
+  location: "Delhi, India",
+  born: "Visakhapatnam, Andhra Pradesh",
+  background: "Defense Family Heritage"
 };
 
-export const keyAchievements = [
-  {
-    title: "Sales Enablement & Product Activation",
-    description: "Led product activation strategies across 70+ global locations coordinating 700+ teams, developed knowledge resources and training programs reducing learning curve by 75%, and equipped sales teams with market insights driving 35% increase in customer retention."
-  },
-  {
-    title: "Measurement & Analytics Leadership",
-    description: "Implemented analytics dashboards tracking 20+ KPIs across multiple platforms, established A/B testing frameworks across 8+ user flows, and delivered measurement solutions enabling data-driven decisions for 500K+ users and 200+ enterprise clients."
-  },
-  {
-    title: "Executive Stakeholder Influence",
-    description: "Influenced C-suite stakeholders and cross-functional teams without formal authority across government agencies, Fortune 500 clients, and global organizations, aligning diverse stakeholder groups around shared objectives."
-  },
-  {
-    title: "Go-to-Market Strategy Execution",
-    description: "Orchestrated product launches across three continents generating €1.2M revenue within 6 months, scaling market share from 1% to 7% through consultative selling approach."
-  }
-];
-
-export const coreCompetencies = [
-  { category: "Go-to-Market & Product Activation", skills: ["Product Activation Strategy", "Sales Enablement", "Market Positioning", "Competitive Intelligence", "Customer Success Management"] },
-  { category: "Measurement & Analytics", skills: ["Marketing Analytics", "Attribution Modeling", "KPI Framework Development", "A/B Testing", "Dashboard Development"] },
-  { category: "Stakeholder Management", skills: ["Executive Engagement", "Cross-Functional Collaboration", "Influence Without Authority", "Sales & Marketing Alignment"] },
-  { category: "Product Strategy", skills: ["Portfolio Management", "Go-to-Market Strategy", "Customer Discovery", "Solution Selling", "OKR Framework"] }
-];
+export const aboutMe = {
+  summary: "Product management executive with 20+ years of global experience delivering software and hardware solutions across Asia, Europe, the Americas, and the Middle East. Consistently achieved €50M+ in business impact by transforming product portfolios, accelerating go-to-market strategies, and optimizing product-market fit.",
+  whatDrivesMe: "I thrive on transforming complex challenges into elegant solutions that drive measurable business impact. My approach combines strategic thinking with hands-on execution, always keeping the customer at the center of every product decision.",
+  globalPerspective: "Having worked across diverse markets including Asia, Europe, the Americas, and the Middle East, I bring a unique perspective on product localization, cultural adaptation, and global scaling strategies. Led teams of up to 40 professionals across multiple continents and spearheaded India's National Digital Health Mission portal launch.",
+  highlights: [
+    "20+ years leading end-to-end development of multiple software and hardware products",
+    "€50M+ cumulative business impact across product portfolios",
+    "Two Red Dot Design Award winning products at BARCO",
+    "Led India's National Digital Health Mission Portal (Ayushman Bharat)"
+  ]
+};
 
 export const education = [
   {
@@ -46,14 +34,14 @@ export const education = [
     period: "2003 - 2005"
   },
   {
-    degree: "Bachelor of Science (Hons)",
-    specialization: "Computer Information Systems",
+    degree: "Bachelor of Computer Information Systems (Hons.)",
+    specialization: "4 Year Degree Course in Information Systems | Specialization: Artificial Intelligence and Parallel & Distributed Computing",
     institution: "GGS Indraprastha University, New Delhi",
     period: "1999 - 2003"
   }
 ];
 
-// Certification categories matching the Excel data
+// Certification categories
 export const certificationCategories = [
   { id: 'product-management', label: 'Product Management', icon: 'product' },
   { id: 'ai-prompt', label: 'Artificial Intelligence & Prompt Engineering', icon: 'ai' },
@@ -205,7 +193,7 @@ export const workExperience = [
       "Transformed business from product reselling to integrated solutions delivery",
       "Grew market share from 1% to 7% achieving ₹60+ Crores annual revenue",
       "Forged strategic OEM partnerships with Cisco, Extron, Kramer, Crestron, and JBL",
-      "Led sales strategy for high-value government and enterprise solutions including Public Information Systems (₹5 Crores) and Nokia Network Operations Centers (₹4 Crores)"
+      "Led sales strategy for high-value government and enterprise solutions"
     ]
   },
   {
@@ -234,6 +222,7 @@ export const workExperience = [
   }
 ];
 
+// Work Samples - Brochures and Wireframes
 export const workSamples = [
   {
     id: 1,
@@ -242,7 +231,6 @@ export const workSamples = [
     category: "Product Brochure",
     description: "Marketing collateral for India's National Doctor Directory - a comprehensive platform for doctor registration and verification under the National Digital Health Mission.",
     type: "pdf",
-    thumbnail: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/1ee8zbic_NDHM%20-%20DigiDoctor.pdf",
     fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/1ee8zbic_NDHM%20-%20DigiDoctor.pdf"
   },
   {
@@ -252,7 +240,6 @@ export const workSamples = [
     category: "Product Brochure",
     description: "Marketing brochure for the National Medical Facility Directory - enabling healthcare facilities to register and be discoverable within India's digital health ecosystem.",
     type: "pdf",
-    thumbnail: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/3bkc7785_NDHM-Health%20Facilities.pdf",
     fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/3bkc7785_NDHM-Health%20Facilities.pdf"
   },
   {
@@ -260,9 +247,8 @@ export const workSamples = [
     title: "Health ID - Unique Health Identifier",
     client: "NDHM (National Health Authority)",
     category: "Product Brochure",
-    description: "Marketing collateral for India's Unique Health ID system - empowering citizens with a digital health identity to manage their medical records and access healthcare services.",
+    description: "Marketing collateral for India's Unique Health ID system - empowering citizens with a digital health identity.",
     type: "pdf",
-    thumbnail: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/r4ny6q71_NDHM-Health%20ID.pdf",
     fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/r4ny6q71_NDHM-Health%20ID.pdf"
   },
   {
@@ -270,56 +256,120 @@ export const workSamples = [
     title: "Dynamic Digital Signage Solutions",
     client: "HCL Infosystems Ltd.",
     category: "Product Brochure",
-    description: "Comprehensive product brochure for HCL's Dynamic Digital Signage Solutions (DS)2 - covering digital signage facts, architecture, application domains across retail, hospitality, healthcare, and government sectors.",
+    description: "Product brochure for HCL's Dynamic Digital Signage Solutions covering architecture and application domains across retail, hospitality, healthcare, and government.",
     type: "image",
-    thumbnail: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/sy5ks13a_HCL%20COVER.jpg",
     fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/sy5ks13a_HCL%20COVER.jpg",
     additionalImages: [
       "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/28o402t7_HCL%20%28Inner%20Pages%29.jpg"
     ]
+  },
+  {
+    id: 5,
+    title: "ISO 27001 Compliance Workflow System",
+    client: "Nokia (via Grant Thornton)",
+    category: "UX Wireframes",
+    description: "Designed automated process flow for ISO27001:2013 compliance certification across Nokia's global operations. Created wireframes for approval workflows and descoping processes.",
+    type: "pdf",
+    fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/bzhq8yzo_Wireframe%20%28Nokia%29.pdf"
+  },
+  {
+    id: 6,
+    title: "National Digital Health Mission Portal",
+    client: "National Health Authority (IQVIA)",
+    category: "UX Wireframes",
+    description: "Wireframe design for India's National Doctor Directory and Medical Facility Directory. Designed registration flows for Unique Health IDs and doctor onboarding.",
+    type: "pdf",
+    fileUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/n49l9uvb_WireFrames%20%28NDHM%29.pdf"
   }
 ];
 
-export const caseStudies = [
+// Whitepapers
+export const whitepapers = [
   {
     id: 1,
     title: "Liquid Cooling in Laser-based Displays",
     company: "Barco",
-    category: "Whitepaper",
-    description: "Comprehensive whitepaper discussing the challenges of heat generation in electronic systems, particularly in LED-based projection devices, and introducing liquid cooling as a superior solution for managing thermal challenges in Rear Projection Cubes.",
-    technologies: ["LED Technology", "Thermal Management", "Liquid Cooling Systems", "Heat Sinks"],
-    outcomes: ["Established thought leadership in thermal management", "Supported sales enablement for RPC product line"],
+    description: "Comprehensive whitepaper discussing heat generation challenges in LED-based projection devices and liquid cooling as a solution for Rear Projection Cubes.",
+    technologies: ["LED Technology", "Thermal Management", "Liquid Cooling", "Heat Sinks"],
     pdfUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/rqjic8dq_White%20Paper-Liquid%20Cooling%20in%20Laser%20based%20displays.pdf"
   },
   {
     id: 2,
     title: "Windows-based Video Wall Controller",
     company: "Barco",
-    category: "Whitepaper",
-    description: "Technical whitepaper on Barco LVC 400 HDCP Compliant Scalable Video Wall Controller, covering PC-based architecture, backplane systems, and scalability features for enterprise video wall deployments.",
+    description: "Technical whitepaper on Barco LVC 400 HDCP Compliant Scalable Video Wall Controller, covering PC-based architecture and scalability features.",
     technologies: ["Video Wall Controllers", "HDCP Compliance", "Intel Xeon Architecture", "DisplayPort 1.2"],
-    outcomes: ["Product marketing collateral for enterprise sales", "Technical reference for system integrators"],
     pdfUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/9w6eozaq_Whitepaper-%20Windows%20based%20Video%20Wall%20Controller.pdf"
+  }
+];
+
+// Featured Projects / Case Studies
+export const caseStudies = [
+  {
+    id: 1,
+    letter: "N",
+    year: "2020",
+    title: "National Digital Health Mission Portal (Ayushman Bharat)",
+    client: "Government of India / IQVIA",
+    description: "Led complete revamp of India's national healthcare portal during COVID-19 pandemic, serving the entire population of India with equity-based inclusion and multi-language support.",
+    tags: ["Product Strategy", "UX Design", "Government Relations", "Healthcare IT", "QR Code Integration", "Video Conferencing", "Multi-language Support"],
+    impact: "Launched on PM's Independence Day speech Aug 15, 2020. Served entire Indian population during COVID-19 pandemic with intuitive, accessible interface.",
+    color: "#e8f4f8"
+  },
+  {
+    id: 2,
+    letter: "W",
+    year: "2012",
+    title: "World's Largest Video Wall Network - TV Today",
+    client: "India Today Group",
+    description: "Designed and deployed the world's largest video wall installation with 132 displays for India Today Group's newsroom, featuring innovative 12-degree curved floating display wall.",
+    tags: ["Video Wall Systems", "Broadcasting Technology", "Real-time Content Management", "Multi-input Integration", "Studio Design"],
+    impact: "₹4.5 Crores project. 132 displays making it world's largest installation. Revolutionized broadcast capabilities with zero-latency multi-source integration.",
+    color: "#d4e5f7"
   },
   {
     id: 3,
-    title: "ISO 27001 Compliance Workflow System",
-    company: "Nokia (via Grant Thornton)",
-    category: "UX Wireframes",
-    description: "Designed automated process flow for ISO27001:2013 compliance certification across Nokia's global operations. Created wireframes for approval workflows, requestor/approver interfaces, and descoping processes.",
-    technologies: ["RSA Archer", "SharePoint", "Power BI", "Workflow Automation"],
-    outcomes: ["Reduced approval cycles from 18 days to 2 days", "Deployed across 70+ global locations"],
-    pdfUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/bzhq8yzo_Wireframe%20%28Nokia%29.pdf"
+    letter: "B",
+    year: "2014-2018",
+    title: "BARCO Red Dot Award Products",
+    client: "BARCO",
+    description: "Global development and launch of award-winning laser illumination displays (ODL-721) and networked video processors (LVC-400), both honored with Red Dot Design Awards.",
+    tags: ["Hardware Product Management", "Global GTM", "Channel Partnerships", "SaaS Analytics", "Laser Illumination Technology"],
+    impact: "EUR 1.2M revenue in 6 months, 42% market share increase, 60% reduction in order processing time. Two Red Dot Design Awards.",
+    color: "#f5f5f5"
   },
   {
     id: 4,
-    title: "National Digital Health Mission Portal",
-    company: "National Health Authority (IQVIA)",
-    category: "UX Wireframes",
-    description: "Led wireframe design for India's National Doctor Directory and Medical Facility Directory as part of the National Digital Health Mission. Designed registration flows for Unique Health IDs, doctor onboarding, and facility management.",
-    technologies: ["Mobile App Design", "Healthcare IT", "Government Systems", "User Registration Flows"],
-    outcomes: ["500K+ citizen registrations within 30 days", "Launched by Prime Minister of India"],
-    pdfUrl: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/n49l9uvb_WireFrames%20%28NDHM%29.pdf"
+    letter: "I",
+    year: "2012",
+    title: "IOCL Pipeline SCADA Integration",
+    client: "IOCL Pipelines Division / NEC",
+    description: "Designed hybrid system integrating SCADA data from 5 refineries with seamless displays and software environment for real-time multi-source visualization.",
+    tags: ["Usability Studies", "Customer Feedback", "Prototype", "ROI Analysis", "TCO Optimization"],
+    impact: "40% improvement in workplace efficiency. Real-time data sharing for enhanced decision making. Integration with MIS and Corporate Communication modules.",
+    color: "#fff8e6"
+  },
+  {
+    id: 5,
+    letter: "N",
+    year: "2022-2024",
+    title: "Nokia ISO 27001 Certification Program",
+    client: "Nokia / Grant Thornton",
+    description: "Developed software utility for ISO 27001:2013 certification workflow management, capturing requirements from audit and QA teams across global operations.",
+    tags: ["Customer Interaction", "Wireframes", "Product Requirements", "Prototypes", "MVP Development", "UX Improvement"],
+    impact: "90% reduction in approval time. Timely flow of information to all stakeholders. Zero lost opportunities due to information capture.",
+    color: "#e8f4f8"
+  },
+  {
+    id: 6,
+    letter: "H",
+    year: "2006",
+    title: "HCL Tech Enterprise Streaming Solution",
+    client: "HCL Tech",
+    description: "Led system design of innovative IP-based streaming solution using Windows Media Server, replacing expensive Cisco proprietary technology for company-wide events.",
+    tags: ["Live Streaming", "Synchronization", "Prototypes", "UX Improvement"],
+    impact: "90% reduction in deployment costs. Utilization of existing IT infrastructure. Unlimited scalability with high redundancy.",
+    color: "#f0e6f5"
   }
 ];
 

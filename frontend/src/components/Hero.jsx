@@ -1,162 +1,123 @@
 import React from 'react';
-import { MapPin, Mail, Phone, Linkedin, Download, ChevronDown } from 'lucide-react';
-import { profileData, keyAchievements } from '../data/mock';
+import { MapPin, Mail, Phone, Linkedin, TrendingUp, Award, Globe, Users } from 'lucide-react';
+import { profileData, aboutMe } from '../data/mock';
 import { Button } from './ui/button';
 
 const Hero = () => {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <section
       id="about"
-      className="min-h-screen pt-20 md:pt-24 pb-16 bg-gradient-to-b from-slate-50 to-white"
+      className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-slate-50 to-white"
       aria-labelledby="hero-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Hero Content */}
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start pt-8 md:pt-12">
-          {/* Profile Image & Quick Info */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 sticky top-24">
-              <div className="flex flex-col items-center text-center">
-                <div className="relative mb-6">
-                  <img
-                    src={profileData.photo}
-                    alt={`${profileData.name} - Professional Headshot`}
-                    className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-blue-100 shadow-lg"
-                  />
-                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white text-xs font-bold">20+</span>
-                  </div>
-                </div>
-                
-                <h1 id="hero-heading" className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
-                  {profileData.name}
-                </h1>
-                <p className="text-blue-700 font-semibold mb-1">{profileData.title}</p>
-                <p className="text-slate-600 text-sm mb-6">{profileData.subtitle}</p>
-                
-                <div className="flex items-center text-slate-500 text-sm mb-6">
-                  <MapPin size={16} className="mr-2" />
-                  <span>{profileData.location}</span>
-                </div>
-                
-                {/* Contact Quick Links */}
-                <div className="w-full space-y-3">
-                  <a
-                    href={`mailto:${profileData.email}`}
-                    className="flex items-center justify-center space-x-2 w-full px-4 py-3 bg-slate-50 hover:bg-blue-50 text-slate-700 hover:text-blue-700 rounded-lg transition-colors text-sm"
-                  >
-                    <Mail size={18} />
-                    <span className="truncate">{profileData.email}</span>
-                  </a>
-                  <a
-                    href={`tel:${profileData.phone}`}
-                    className="flex items-center justify-center space-x-2 w-full px-4 py-3 bg-slate-50 hover:bg-blue-50 text-slate-700 hover:text-blue-700 rounded-lg transition-colors text-sm"
-                  >
-                    <Phone size={18} />
-                    <span>{profileData.phone}</span>
-                  </a>
-                  <a
-                    href={profileData.linkedIn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm"
-                  >
-                    <Linkedin size={18} />
-                    <span>Connect on LinkedIn</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header with Photo and Basic Info */}
+        <div className="flex flex-col lg:flex-row gap-8 items-start mb-12">
+          {/* Photo */}
+          <div className="flex-shrink-0">
+            <img
+              src={profileData.photo}
+              alt={`${profileData.name} - Professional Headshot`}
+              className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover shadow-lg border-4 border-white"
+            />
           </div>
-
-          {/* Main Content */}
-          <div className="lg:col-span-2">
-            {/* Executive Summary */}
-            <div className="mb-10">
-              <h2 className="text-sm font-semibold text-blue-700 uppercase tracking-wider mb-3">
-                Executive Summary
-              </h2>
-              <p className="text-slate-700 text-lg leading-relaxed">
-                {profileData.summary}
-              </p>
+          
+          {/* Name and Title */}
+          <div className="flex-1">
+            <h1 id="hero-heading" className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+              {profileData.name}
+            </h1>
+            <p className="text-xl text-blue-700 font-semibold mb-2">{profileData.title}</p>
+            <p className="text-slate-600 mb-4">{profileData.tagline}</p>
+            
+            <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6">
+              <span className="flex items-center">
+                <MapPin size={16} className="mr-1" />
+                {profileData.location}
+              </span>
+              <a href={`mailto:${profileData.email}`} className="flex items-center hover:text-blue-600">
+                <Mail size={16} className="mr-1" />
+                {profileData.email}
+              </a>
+              <a href={`tel:${profileData.phone}`} className="flex items-center hover:text-blue-600">
+                <Phone size={16} className="mr-1" />
+                {profileData.phone}
+              </a>
             </div>
-
-            {/* Impact Metrics */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-              {[
-                { value: '€50M+', label: 'Business Impact' },
-                { value: '20+', label: 'Years Experience' },
-                { value: '70+', label: 'Global Locations' },
-                { value: '500K+', label: 'Users Served' }
-              ].map((metric, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl p-4 md:p-6 shadow-md border border-slate-100 text-center hover:shadow-lg transition-shadow"
-                >
-                  <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">
-                    {metric.value}
-                  </div>
-                  <div className="text-xs md:text-sm text-slate-600">{metric.label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Key Achievements */}
-            <div className="mb-10">
-              <h2 className="text-sm font-semibold text-blue-700 uppercase tracking-wider mb-4">
-                Key Achievements
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {keyAchievements.map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl p-5 shadow-md border border-slate-100 hover:shadow-lg transition-shadow"
-                  >
-                    <h3 className="font-semibold text-slate-900 mb-2">{achievement.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{achievement.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={scrollToContact}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-base"
-              >
-                Get In Touch
+            
+            <div className="flex gap-3">
+              <Button onClick={scrollToContact} className="bg-blue-600 hover:bg-blue-700 text-white">
+                Contact Me
               </Button>
-              <Button
-                variant="outline"
-                className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-3 text-base"
-                onClick={() => document.getElementById('case-studies').scrollIntoView({ behavior: 'smooth' })}
+              <a
+                href={profileData.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition-colors"
               >
-                View Case Studies
-              </Button>
+                <Linkedin size={18} className="mr-2" />
+                LinkedIn
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="flex justify-center mt-12">
-          <button
-            onClick={() => document.getElementById('qualifications').scrollIntoView({ behavior: 'smooth' })}
-            className="p-2 text-slate-400 hover:text-blue-600 transition-colors animate-bounce"
-            aria-label="Scroll to qualifications"
-          >
-            <ChevronDown size={32} />
-          </button>
+        {/* About Me Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 mb-1">About Me</h2>
+          <div className="w-12 h-1 bg-slate-900 mb-6"></div>
+          
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
+            <p className="text-slate-700 text-lg leading-relaxed mb-6">
+              {aboutMe.summary}
+            </p>
+            
+            {/* What Drives Me */}
+            <div className="border-l-4 border-orange-400 bg-orange-50 p-5 rounded-r-lg mb-6">
+              <h3 className="font-bold text-slate-900 mb-2">What Drives Me</h3>
+              <p className="text-slate-700 italic">
+                {aboutMe.whatDrivesMe}
+              </p>
+            </div>
+            
+            <p className="text-slate-700 leading-relaxed">
+              {aboutMe.globalPerspective}
+            </p>
+          </div>
+        </div>
+
+        {/* Key Highlights */}
+        <div className="grid md:grid-cols-2 gap-4 mb-12">
+          {aboutMe.highlights.map((highlight, index) => (
+            <div key={index} className="flex items-start space-x-3 bg-white rounded-xl p-4 shadow-sm border border-slate-100">
+              <div className="p-2 bg-blue-100 rounded-lg flex-shrink-0">
+                {index === 0 && <Award className="text-blue-700" size={20} />}
+                {index === 1 && <TrendingUp className="text-blue-700" size={20} />}
+                {index === 2 && <Award className="text-blue-700" size={20} />}
+                {index === 3 && <Globe className="text-blue-700" size={20} />}
+              </div>
+              <p className="text-slate-700 text-sm">{highlight}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Born & Background */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
+            <p className="text-sm text-blue-600 font-medium mb-1">Born</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.born}</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
+            <p className="text-sm text-blue-600 font-medium mb-1">Background</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.background}</p>
+          </div>
         </div>
       </div>
     </section>
