@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Qualifications from "./components/Qualifications";
 import Experience from "./components/Experience";
+import WorkSamples from "./components/WorkSamples";
 import CaseStudies from "./components/CaseStudies";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -23,7 +24,7 @@ const PortfolioHome = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'qualifications', 'experience', 'case-studies', 'contact'];
+      const sections = ['about', 'qualifications', 'experience', 'work-samples', 'case-studies', 'contact'];
       const scrollPosition = window.scrollY + 100; // Offset for header
 
       for (const section of sections) {
@@ -58,6 +59,7 @@ const PortfolioHome = () => {
         <Hero />
         <Qualifications />
         <Experience />
+        <WorkSamples />
         <CaseStudies />
         <Contact />
       </main>
