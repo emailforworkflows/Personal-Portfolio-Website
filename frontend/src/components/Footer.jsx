@@ -39,6 +39,7 @@ const Footer = () => {
                   { id: 'about', label: 'About Me' },
                   { id: 'qualifications', label: 'Qualifications' },
                   { id: 'experience', label: 'Experience' },
+                  { id: 'work-samples', label: 'Work Samples' },
                   { id: 'case-studies', label: 'Case Studies' },
                   { id: 'contact', label: 'Contact' }
                 ].map((item) => (
