@@ -53,20 +53,67 @@ export const education = [
   }
 ];
 
-export const certifications = [
-  { name: "Google Project Management", issuer: "Google", id: "9FCGS9WXG7KT", date: "Dec 2024" },
-  { name: "Google UX Design", issuer: "Google", id: "9A3RFV48JDWH", date: "Sep 2025" },
-  { name: "Lead Auditor for ISO 27001:2013", issuer: "BSI, UK", id: "ENR-01104180", date: "2021" },
-  { name: "Generative AI: Prompt Engineering Basics", issuer: "IBM", id: null, date: "Dec 2024" },
-  { name: "Writing Prompt Like a Pro", issuer: "Google", id: null, date: "Jul 2025" },
-  { name: "Fundamentals of Digital Marketing", issuer: "Google", id: null, date: "Aug 2020" },
-  { name: "Product Analytics", issuer: "Product School", id: null, date: null },
-  { name: "Product Discovery", issuer: "Product School", id: null, date: null },
-  { name: "Product Launches", issuer: "Product School", id: null, date: null },
-  { name: "Product Roadmapping", issuer: "Product School", id: null, date: null },
-  { name: "Product Strategy", issuer: "Product School", id: null, date: null },
-  { name: "Product Experimentation", issuer: "Product School", id: null, date: null }
+// Certification categories matching the Excel data
+export const certificationCategories = [
+  { id: 'product-management', label: 'Product Management', icon: 'product' },
+  { id: 'ai-prompt', label: 'Artificial Intelligence & Prompt Engineering', icon: 'ai' },
+  { id: 'project-management', label: 'Project Management & Leadership', icon: 'project' },
+  { id: 'cyber-security', label: 'Cyber Security', icon: 'security' },
+  { id: 'linkedin-learning', label: 'LinkedIn Learning', icon: 'linkedin' }
 ];
+
+export const certifications = {
+  'product-management': [
+    { name: "Product Analytics Micro Certification", id: "cert_8dmmbvxl", issuer: "Product School", date: "Jul 2021", hasLink: true },
+    { name: "Product Discovery Micro Certification", id: "cert_kh7zzr1j", issuer: "Product School", date: "Jun 2024", hasLink: true },
+    { name: "Product Launches Micro Certification", id: "cert_pdcc6snm", issuer: "Product School", date: "May 2024", hasLink: true },
+    { name: "Product Roadmapping Micro Certification", id: "cert_lb68rnnm", issuer: "Product School", date: "May 2024", hasLink: true },
+    { name: "Product Strategy Micro Certification", id: "cert_cflwrkg", issuer: "Product School", date: "Aug 2024", hasLink: true },
+    { name: "Product Experimentation Micro Certification", id: "cert_sd75dxjk", issuer: "Product School", date: "Mar 2025", hasLink: true },
+    { name: "Fundamentals of Digital Marketing", id: "YXTYFHQTR", issuer: "Google", date: "Aug 2020", hasLink: true },
+    { name: "Google UX Design (Master Certificate)", id: "9A3RFV48JDWH", issuer: "Google", date: "Sep 2025", hasLink: true }
+  ],
+  'ai-prompt': [
+    { name: "Generative AI: Prompt Engineering Basics", id: null, issuer: "IBM", date: "Dec 2024", hasLink: true },
+    { name: "Writing Prompt Like A Pro", id: null, issuer: "Google", date: "Jul 2025", hasLink: true },
+    { name: "Using AI as a Creative or Expert Partner", id: null, issuer: "Google", date: "Jul 2025", hasLink: true },
+    { name: "Speed Up Data Analysis and Presentation Building", id: null, issuer: "Google", date: "Jul 2025", hasLink: true },
+    { name: "Google Prompting Essentials (Master Certificate)", id: "KMS0FULDFJPW", issuer: "Google", date: "Jul 2025", hasLink: true },
+    { name: "Artificial Intelligence Micro Certification", id: "cert_pgh", issuer: "Product School", date: "Jun 2024", hasLink: true },
+    { name: "Outskill Masterclass - Generative AI Mastermind", id: null, issuer: "Outskill", date: "Sep 2025", hasLink: false }
+  ],
+  'project-management': [
+    { name: "Google Project Management (Master Certificate)", id: "9FCGS9WXG7KT", issuer: "Google", date: "Dec 2024", hasLink: true },
+    { name: "Lead Auditor for ISO 27001:2013", id: "ENR-01104180", issuer: "BSI, UK", date: "2021", hasLink: true },
+    { name: "Artificial Intelligence for Project Managers", id: "ASgakERXlFW-N5eaJ1pqvCmTLUjR", issuer: "PMI", date: "Dec 2020", hasLink: true },
+    { name: "Program Management Foundations", id: "AeH01D_GjqG_1ErmKEnFamjb4CC_", issuer: "PMI", date: "Mar 2021", hasLink: true },
+    { name: "Project Management for Healthcare Projects", id: "AYF9CDN1Cemd5WwaB5H6QNBT9pw1", issuer: "PMI", date: "Nov 2020", hasLink: true },
+    { name: "Becoming a Software Project Manager", id: "AV5QWNuSF52eZULVJuX3dcjvVrf-", issuer: "LinkedIn", date: "May 2021", hasLink: true }
+  ],
+  'cyber-security': [
+    { name: "Foundations of Cyber Security", id: "8JDEYX9DFNNP", issuer: "Google", date: "Apr 2025", hasLink: true },
+    { name: "Manage Security Risks", id: "N0GEH7J68GR6", issuer: "Google", date: "May 2025", hasLink: true },
+    { name: "Networks & Network Security", id: "97YVVELERNOO", issuer: "Google", date: "May 2025", hasLink: true },
+    { name: "Assets Threats & Vulnerability", id: "ZV7F8ZTN7S4Q", issuer: "Google", date: "Jun 2025", hasLink: true },
+    { name: "Tools of the Trade Linux & SQL", id: "3KL8XKU0FKVC", issuer: "Google", date: "Jun 2025", hasLink: true },
+    { name: "Sound the Alarm Detection and Response", id: "H0ZEVSVO9MS3", issuer: "Google", date: "Jul 2025", hasLink: true },
+    { name: "ISO 27001:2013 Lead Auditor", id: "ENR-01104180", issuer: "BSI, UK", date: "Apr 2022", hasLink: true },
+    { name: "ISO 27001:2013 Lead Implementer", id: "AG/TRG/LIT/501", issuer: "Agile Group", date: "Mar 2022", hasLink: true }
+  ],
+  'linkedin-learning': [
+    { name: "100+ Professional Development Certifications across multiple domains:", isHeader: true },
+    { name: "Leadership Development and Executive Management", issuer: "LinkedIn", hasLink: true },
+    { name: "Strategic Business Planning and Analysis", issuer: "LinkedIn", hasLink: true },
+    { name: "Advanced Digital Marketing and Sales Methodologies", issuer: "LinkedIn", hasLink: true },
+    { name: "Agile Project Management and Scrum Frameworks", issuer: "LinkedIn", hasLink: true },
+    { name: "Data Analytics and Business Intelligence Tools", issuer: "LinkedIn", hasLink: true },
+    { name: "Communication, Negotiation and Presentation Skills", issuer: "LinkedIn", hasLink: true },
+    { name: "Technology Proficiency and Software Development", issuer: "LinkedIn", hasLink: true },
+    { name: "Personal Productivity and Time Management", issuer: "LinkedIn", hasLink: true },
+    { name: "Customer Experience and Product Innovation", issuer: "LinkedIn", hasLink: true },
+    { name: "Financial Analysis and Strategic Forecasting", issuer: "LinkedIn", hasLink: true }
+  ]
+};
 
 export const workExperience = [
   {
