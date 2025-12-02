@@ -4,17 +4,13 @@ import { Button } from './ui/button';
 
 const AccessibilityWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [fontSize, setFontSize] = useState('medium');
-  const [highContrast, setHighContrast] = useState(false);
-
-  useEffect(() => {
-    // Load saved preferences
-    const savedFontSize = localStorage.getItem('accessibility-font-size');
-    const savedContrast = localStorage.getItem('accessibility-high-contrast');
-    
-    if (savedFontSize) setFontSize(savedFontSize);
-    if (savedContrast === 'true') setHighContrast(true);
-  }, []);
+  // Initialize state from localStorage
+  const [fontSize, setFontSize] = useState(() => {
+    return localStorage.getItem('accessibility-font-size') || 'medium';
+  });
+  const [highContrast, setHighContrast] = useState(() => {
+    return localStorage.getItem('accessibility-high-contrast') === 'true';
+  });
 
   useEffect(() => {
     // Apply font size
