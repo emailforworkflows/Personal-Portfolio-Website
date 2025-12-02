@@ -9,6 +9,7 @@ import Qualifications from "./components/Qualifications";
 import Experience from "./components/Experience";
 import WorkSamples from "./components/WorkSamples";
 import CaseStudies from "./components/CaseStudies";
+import Whitepapers from "./components/Whitepapers";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
@@ -24,8 +25,8 @@ const PortfolioHome = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'qualifications', 'experience', 'work-samples', 'case-studies', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Offset for header
+      const sections = ['about', 'qualifications', 'experience', 'work-samples', 'case-studies', 'whitepapers', 'contact'];
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -42,13 +43,12 @@ const PortfolioHome = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      {/* Skip to main content link for accessibility */}
       <a href="#about" className="skip-link">
         Skip to main content
       </a>
@@ -61,6 +61,7 @@ const PortfolioHome = () => {
         <Experience />
         <WorkSamples />
         <CaseStudies />
+        <Whitepapers />
         <Contact />
       </main>
       

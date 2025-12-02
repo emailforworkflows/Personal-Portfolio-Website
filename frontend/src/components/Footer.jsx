@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, Linkedin, MapPin, Shield, FileText, Accessibility } from 'lucide-react';
+import { Mail, Phone, Linkedin, MapPin, Shield, Accessibility } from 'lucide-react';
 import { profileData } from '../data/mock';
 
 const Footer = () => {
@@ -18,15 +18,15 @@ const Footer = () => {
 
   return (
     <footer className="bg-slate-900 text-white" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-2">{profileData.name}</h3>
-            <p className="text-slate-400 mb-4">{profileData.title}</p>
+            <h3 className="text-xl font-bold mb-2">{profileData.name}</h3>
+            <p className="text-slate-400 text-sm mb-4">{profileData.title}</p>
             <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-              Product leader with 20+ years of experience driving go-to-market activation
-              and measurement solutions across global markets.
+              Product management executive with 20+ years delivering end-to-end software and hardware products
+              across global markets with €50M+ business impact.
             </p>
           </div>
 
@@ -41,6 +41,7 @@ const Footer = () => {
                   { id: 'experience', label: 'Experience' },
                   { id: 'work-samples', label: 'Work Samples' },
                   { id: 'case-studies', label: 'Case Studies' },
+                  { id: 'whitepapers', label: 'Whitepapers' },
                   { id: 'contact', label: 'Contact' }
                 ].map((item) => (
                   <li key={item.id}>
@@ -56,7 +57,7 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Contact & Legal */}
+          {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4 text-slate-200">Contact</h4>
             <ul className="space-y-3">

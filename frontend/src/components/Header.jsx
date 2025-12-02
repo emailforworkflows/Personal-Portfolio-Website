@@ -18,6 +18,7 @@ const Header = ({ activeSection }) => {
     { id: 'experience', label: 'Work Experience' },
     { id: 'work-samples', label: 'Work Samples' },
     { id: 'case-studies', label: 'Case Studies' },
+    { id: 'whitepapers', label: 'Whitepapers' },
     { id: 'contact', label: 'Contact Me' }
   ];
 
@@ -32,14 +33,12 @@ const Header = ({ activeSection }) => {
   }, []);
 
   useEffect(() => {
-    // Apply font size
     document.documentElement.classList.remove('font-size-small', 'font-size-medium', 'font-size-large', 'font-size-xlarge');
     document.documentElement.classList.add(`font-size-${fontSize}`);
     localStorage.setItem('accessibility-font-size', fontSize);
   }, [fontSize]);
 
   useEffect(() => {
-    // Apply high contrast
     if (highContrast) {
       document.documentElement.classList.add('high-contrast');
     } else {
@@ -90,18 +89,18 @@ const Header = ({ activeSection }) => {
             className="flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded"
             aria-label="Go to top"
           >
-            <span className="text-lg md:text-xl font-semibold text-slate-900">
+            <span className="text-base md:text-lg font-semibold text-slate-900">
               {profileData.name}
             </span>
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
+          <nav className="hidden xl:flex items-center space-x-0.5" role="navigation" aria-label="Main navigation">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium rounded-lg transition-colors duration-200 ${
+                className={`px-2 py-2 text-xs font-medium rounded-lg transition-colors duration-200 whitespace-nowrap ${
                   activeSection === item.id
                     ? 'text-blue-700 bg-blue-50'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -116,7 +115,7 @@ const Header = ({ activeSection }) => {
           {/* Accessibility Controls - Desktop */}
           <div className="hidden md:flex items-center space-x-2">
             {/* Font Size Controls */}
-            <div className="flex items-center bg-slate-100 rounded-lg p-1" role="group" aria-label="Font size controls">
+            <div className="flex items-center bg-slate-100 rounded-lg p-0.5" role="group" aria-label="Font size controls">
               <button
                 onClick={decreaseFontSize}
                 disabled={fontSize === 'small'}
@@ -126,7 +125,7 @@ const Header = ({ activeSection }) => {
               >
                 <Minus size={14} />
               </button>
-              <span className="px-2 text-xs font-medium text-slate-600 min-w-[20px] text-center">A</span>
+              <span className="px-1.5 text-xs font-medium text-slate-600">A</span>
               <button
                 onClick={increaseFontSize}
                 disabled={fontSize === 'xlarge'}
@@ -150,33 +149,33 @@ const Header = ({ activeSection }) => {
               aria-pressed={highContrast}
               title={highContrast ? 'Disable high contrast' : 'Enable high contrast'}
             >
-              {highContrast ? <Moon size={16} /> : <Sun size={16} />}
+              {highContrast ? <Moon size={14} /> : <Sun size={14} />}
             </button>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-1 ml-2 pl-2 border-l border-slate-200">
+            <div className="flex items-center space-x-1 ml-1 pl-1 border-l border-slate-200">
               <a
                 href={profileData.linkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
+                className="p-1.5 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
                 aria-label="LinkedIn Profile"
               >
-                <Linkedin size={18} />
+                <Linkedin size={16} />
               </a>
               <a
                 href={`mailto:${profileData.email}`}
-                className="p-2 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
+                className="p-1.5 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
                 aria-label="Send Email"
               >
-                <Mail size={18} />
+                <Mail size={16} />
               </a>
               <a
                 href={`tel:${profileData.phone}`}
-                className="p-2 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
+                className="p-1.5 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
                 aria-label="Call Phone"
               >
-                <Phone size={18} />
+                <Phone size={16} />
               </a>
             </div>
           </div>
