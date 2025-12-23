@@ -59,6 +59,7 @@ const PortfolioHome = () => {
       <main id="main-content">
         <Hero />
         <Qualifications />
+        <Skills />
         <Experience />
         <WorkSamples />
         <CaseStudies />
