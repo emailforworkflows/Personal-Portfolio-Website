@@ -31,7 +31,7 @@ const Skills = () => {
           </h2>
           <div className="w-12 h-1 bg-slate-900 mb-6"></div>
           <p className="text-slate-600 max-w-2xl">
-            Core competencies developed over 20+ years of product management and go-to-market leadership.
+            Core competencies developed over 21 years of product management and go-to-market leadership.
           </p>
         </div>
 
