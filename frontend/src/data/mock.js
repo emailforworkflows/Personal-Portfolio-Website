@@ -19,7 +19,7 @@ export const aboutMe = {
   whatDrivesMe: "I thrive on transforming complex challenges into elegant solutions that drive measurable business impact. My approach combines strategic thinking with hands-on execution, always keeping the customer at the center of every product decision.",
   globalPerspective: "Having worked across diverse markets including Asia, Europe, the Americas, and the Middle East, I bring a unique perspective on product localization, cultural adaptation, and global scaling strategies. Led teams of up to 40 professionals across multiple continents and spearheaded India's National Digital Health Mission portal launch.",
   highlights: [
-    "20+ years leading end-to-end development of multiple software and hardware products",
+    "21 years leading end-to-end development of multiple software and hardware products",
     "€50M+ cumulative business impact across product portfolios",
     "Two Red Dot Design Award winning products at BARCO",
     "Led India's National Digital Health Mission Portal (Ayushman Bharat)"
