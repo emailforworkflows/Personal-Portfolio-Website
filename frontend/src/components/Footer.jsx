@@ -25,7 +25,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-2">{profileData.name}</h3>
             <p className="text-slate-400 text-sm mb-4">{profileData.title}</p>
             <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-              Product management executive with 20+ years delivering end-to-end software and hardware products
+              Product management executive with 21 years delivering end-to-end software and hardware products
               across global markets with €50M+ business impact.
             </p>
           </div>
