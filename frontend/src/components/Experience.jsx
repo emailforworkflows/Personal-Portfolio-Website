@@ -77,7 +77,7 @@ const Experience = () => {
           </h2>
           <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            20+ years of progressive leadership across product management, marketing, and sales
+            21 years of progressive leadership across product management, marketing, and sales
           </p>
         </div>
 
