@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Qualifications from "./components/Qualifications";
+import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import WorkSamples from "./components/WorkSamples";
 import CaseStudies from "./components/CaseStudies";
