@@ -59,7 +59,8 @@ export const education = [
     degree: "Master of Business Administration (MBA)",
     specialization: "Marketing & International Business",
     institution: "GGS Indraprastha University, New Delhi",
-    period: "2003 - 2005"
+    period: "2003 - 2005",
+    achievement: "Topper of the Batch (Marketing + International Business Specialisation)"
   },
   {
     degree: "Bachelor of Computer Information Systems (Hons.)",
