@@ -15,6 +15,7 @@ const Header = ({ activeSection }) => {
   const navItems = [
     { id: 'about', label: 'About Me' },
     { id: 'qualifications', label: 'Qualifications & Certifications' },
+    { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Work Experience' },
     { id: 'work-samples', label: 'Work Samples' },
     { id: 'case-studies', label: 'Case Studies' },
