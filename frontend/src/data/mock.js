@@ -66,7 +66,8 @@ export const education = [
     degree: "Bachelor of Computer Information Systems (Hons.)",
     specialization: "4 Year Degree Course in Information Systems | Specialization: Artificial Intelligence and Parallel & Distributed Computing",
     institution: "GGS Indraprastha University, New Delhi",
-    period: "1999 - 2003"
+    period: "1999 - 2003",
+    achievement: "Secured 19th Rank in University in Batch of 1200 Students"
   }
 ];
 
