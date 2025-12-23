@@ -68,6 +68,13 @@ const Qualifications = () => {
                 <p className="text-blue-700 text-sm font-medium mb-2">{edu.specialization}</p>
                 <p className="text-slate-600 text-sm">{edu.institution}</p>
                 <p className="text-slate-500 text-sm mt-2">{edu.period}</p>
+                {edu.achievement && (
+                  <div className="mt-3 flex items-center">
+                    <span className="inline-flex items-center px-2.5 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-md">
+                      🏆 {edu.achievement}
+                    </span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
