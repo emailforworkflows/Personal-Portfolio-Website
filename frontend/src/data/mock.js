@@ -26,6 +26,34 @@ export const aboutMe = {
   ]
 };
 
+export const skills = [
+  {
+    category: "Go-to-Market & Product Activation",
+    icon: "rocket",
+    skills: ["Product Activation Strategy", "Sales Enablement", "Market Positioning", "Competitive Intelligence", "Customer Success Management", "Product Adoption Growth", "Narrative Development", "Executive Presentations"]
+  },
+  {
+    category: "Measurement & Analytics",
+    icon: "chart",
+    skills: ["Marketing Analytics", "Attribution Modeling", "KPI Framework Development", "A/B Testing & Experimentation", "Product Analytics", "Dashboard Development", "Data-Driven Decision Making", "Performance Measurement"]
+  },
+  {
+    category: "Stakeholder Management & Influence",
+    icon: "users",
+    skills: ["Executive Stakeholder Engagement", "Cross-Functional Collaboration", "Influence Without Authority", "Sales & Marketing Alignment", "Customer & Agency Partnerships", "Internal & External Stakeholder Management", "Change Management"]
+  },
+  {
+    category: "Product Strategy & Solutions",
+    icon: "target",
+    skills: ["Product Portfolio Management", "Go-to-Market Strategy", "Customer Discovery", "Solution Selling", "Market Research", "Competitive Analysis", "Product-Market Fit", "OKR Framework", "Value Proposition Development"]
+  },
+  {
+    category: "Communication & Enablement",
+    icon: "message",
+    skills: ["Storytelling & Narratives", "Training Program Development", "Sales Tools & Resources", "Presentation Skills", "Written Communication", "Technical Concept Simplification", "Knowledge Transfer", "Workshop Facilitation"]
+  }
+];
+
 export const education = [
   {
     degree: "Master of Business Administration (MBA)",
