@@ -15,7 +15,7 @@ export const profileData = {
 };
 
 export const aboutMe = {
-  summary: "Product management executive with 20+ years of global experience delivering software and hardware solutions across Asia, Europe, the Americas, and the Middle East. Consistently achieved €50M+ in business impact by transforming product portfolios, accelerating go-to-market strategies, and optimizing product-market fit.",
+  summary: "Product management executive with 21 years of global experience delivering software and hardware solutions across Asia, Europe, the Americas, and the Middle East. Consistently achieved €50M+ in business impact by transforming product portfolios, accelerating go-to-market strategies, and optimizing product-market fit.",
   whatDrivesMe: "I thrive on transforming complex challenges into elegant solutions that drive measurable business impact. My approach combines strategic thinking with hands-on execution, always keeping the customer at the center of every product decision.",
   globalPerspective: "Having worked across diverse markets including Asia, Europe, the Americas, and the Middle East, I bring a unique perspective on product localization, cultural adaptation, and global scaling strategies. Led teams of up to 40 professionals across multiple continents and spearheaded India's National Digital Health Mission portal launch.",
   highlights: [
