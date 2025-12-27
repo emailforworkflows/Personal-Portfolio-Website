@@ -1,131 +1,97 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 
 const AuthContext = createContext(null);
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
-  }
-  return context;
-};
+const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Check auth on mount
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
-  const checkAuth = async () => {
+  // Check authentication status
+  const checkAuth = useCallback(async () => {
     try {
-      const response = await fetch(`${BACKEND_URL}/api/auth/me`, {
-        credentials: 'include'
+      const response = await axios.get(`${API_URL}/api/auth/me`, {
+        withCredentials: true
       });
-      
-      if (response.ok) {
-        const userData = await response.json();
-        setUser(userData);
-      } else {
-        setUser(null);
-      }
+      setUser(response.data);
+      setError(null);
     } catch (err) {
-      console.error('Auth check failed:', err);
       setUser(null);
+      // Only set error if it's not a 401 (normal unauthenticated state)
+      if (err.response?.status !== 401) {
+        console.error('Auth check error:', err);
+      }
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const register = async (email, password, name) => {
-    setError(null);
-    try {
-      const response = await fetch(`${BACKEND_URL}/api/auth/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ email, password, name })
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.detail || 'Registration failed');
-      }
-      
-      setUser(data);
-      return data;
-    } catch (err) {
-      setError(err.message);
-      throw err;
-    }
-  };
+  // Initialize auth check on mount
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
+  // Login with email/password
   const login = async (email, password, rememberMe = false) => {
-    setError(null);
     try {
-      const response = await fetch(`${BACKEND_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ email, password, remember_me: rememberMe })
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.detail || 'Login failed');
-      }
-      
-      setUser(data);
-      return data;
+      setError(null);
+      const response = await axios.post(
+        `${API_URL}/api/auth/login`,
+        { email, password, remember_me: rememberMe },
+        { withCredentials: true }
+      );
+      setUser(response.data);
+      return { success: true, user: response.data };
     } catch (err) {
-      setError(err.message);
-      throw err;
+      const errorMessage = err.response?.data?.detail || 'Login failed';
+      setError(errorMessage);
+      return { success: false, error: errorMessage };
     }
   };
 
-  const loginWithGoogle = () => {
-    // REMINDER: DO NOT HARDCODE THE URL, OR ADD ANY FALLBACKS OR REDIRECT URLS, THIS BREAKS THE AUTH
-    const redirectUrl = window.location.origin + '/auth/callback';
-    window.location.href = `https://auth.emergentagent.com/?redirect=${encodeURIComponent(redirectUrl)}`;
-  };
-
-  const processOAuthCallback = async (sessionId) => {
-    setError(null);
+  // Register new user
+  const register = async (email, password, name) => {
     try {
-      const response = await fetch(`${BACKEND_URL}/api/auth/session`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ session_id: sessionId })
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.detail || 'OAuth login failed');
-      }
-      
-      setUser(data);
-      return data;
+      setError(null);
+      const response = await axios.post(
+        `${API_URL}/api/auth/register`,
+        { email, password, name },
+        { withCredentials: true }
+      );
+      setUser(response.data);
+      return { success: true, user: response.data };
     } catch (err) {
-      setError(err.message);
-      throw err;
+      const errorMessage = err.response?.data?.detail || 'Registration failed';
+      setError(errorMessage);
+      return { success: false, error: errorMessage };
     }
   };
 
+  // Process OAuth session (called from AuthCallback)
+  const processOAuthSession = async (sessionId) => {
+    try {
+      setError(null);
+      const response = await axios.post(
+        `${API_URL}/api/auth/session`,
+        { session_id: sessionId },
+        { withCredentials: true }
+      );
+      setUser(response.data);
+      return { success: true, user: response.data };
+    } catch (err) {
+      const errorMessage = err.response?.data?.detail || 'OAuth authentication failed';
+      setError(errorMessage);
+      return { success: false, error: errorMessage };
+    }
+  };
+
+  // Logout
   const logout = async () => {
     try {
-      await fetch(`${BACKEND_URL}/api/auth/logout`, {
-        method: 'POST',
-        credentials: 'include'
-      });
+      await axios.post(`${API_URL}/api/auth/logout`, {}, { withCredentials: true });
     } catch (err) {
       console.error('Logout error:', err);
     } finally {
@@ -133,65 +99,57 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Request password reset
   const requestPasswordReset = async (email) => {
-    setError(null);
     try {
-      const response = await fetch(`${BACKEND_URL}/api/auth/password-reset-request`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-      
-      const data = await response.json();
-      return data;
+      setError(null);
+      const response = await axios.post(`${API_URL}/api/auth/password-reset-request`, { email });
+      return { success: true, message: response.data.message, token: response.data.reset_token };
     } catch (err) {
-      setError(err.message);
-      throw err;
+      const errorMessage = err.response?.data?.detail || 'Password reset request failed';
+      setError(errorMessage);
+      return { success: false, error: errorMessage };
     }
   };
 
+  // Confirm password reset
   const confirmPasswordReset = async (token, newPassword) => {
-    setError(null);
     try {
-      const response = await fetch(`${BACKEND_URL}/api/auth/password-reset-confirm`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token, new_password: newPassword })
+      setError(null);
+      const response = await axios.post(`${API_URL}/api/auth/password-reset-confirm`, {
+        token,
+        new_password: newPassword
       });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.detail || 'Password reset failed');
-      }
-      
-      return data;
+      return { success: true, message: response.data.message };
     } catch (err) {
-      setError(err.message);
-      throw err;
+      const errorMessage = err.response?.data?.detail || 'Password reset failed';
+      setError(errorMessage);
+      return { success: false, error: errorMessage };
     }
   };
 
+  // Update user preferences
   const updatePreferences = async (preferences) => {
     try {
-      const response = await fetch(`${BACKEND_URL}/api/auth/preferences`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ preferences })
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok && user) {
-        setUser({ ...user, preferences });
-      }
-      
-      return data;
+      setError(null);
+      const response = await axios.put(
+        `${API_URL}/api/auth/preferences`,
+        { preferences },
+        { withCredentials: true }
+      );
+      setUser(prev => ({ ...prev, preferences: response.data.preferences }));
+      return { success: true };
     } catch (err) {
-      console.error('Update preferences error:', err);
-      throw err;
+      const errorMessage = err.response?.data?.detail || 'Failed to update preferences';
+      setError(errorMessage);
+      return { success: false, error: errorMessage };
     }
+  };
+
+  // Google OAuth login - REMINDER: DO NOT HARDCODE THE URL, OR ADD ANY FALLBACKS OR REDIRECT URLS, THIS BREAKS THE AUTH
+  const loginWithGoogle = () => {
+    const redirectUrl = window.location.origin + '/dashboard';
+    window.location.href = `https://auth.emergentagent.com/?redirect=${encodeURIComponent(redirectUrl)}`;
   };
 
   const value = {
@@ -200,20 +158,27 @@ export const AuthProvider = ({ children }) => {
     error,
     isAuthenticated: !!user,
     isAdmin: user?.role === 'admin',
-    register,
     login,
-    loginWithGoogle,
-    processOAuthCallback,
+    register,
     logout,
+    loginWithGoogle,
+    processOAuthSession,
     requestPasswordReset,
     confirmPasswordReset,
     updatePreferences,
-    checkAuth
+    checkAuth,
+    clearError: () => setError(null)
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
+
+export default AuthContext;

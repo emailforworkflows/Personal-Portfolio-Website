@@ -1,41 +1,71 @@
 import ReactGA from 'react-ga4';
 
+// Google Analytics 4 Measurement ID provided by user
 const GA_MEASUREMENT_ID = 'G-37YMJCWTZH';
 
+// Initialize Google Analytics
 export const initGA = () => {
-  ReactGA.initialize(GA_MEASUREMENT_ID, {
-    testMode: process.env.NODE_ENV === 'development'
-  });
+  ReactGA.initialize(GA_MEASUREMENT_ID);
 };
 
-export const trackPageView = (path, title) => {
-  ReactGA.send({
-    hitType: 'pageview',
-    page: path,
-    title: title || document.title
-  });
+// Track page views
+export const trackPageView = (path) => {
+  ReactGA.send({ hitType: 'pageview', page: path });
 };
 
-export const trackEvent = (eventName, eventData = {}) => {
+// Track custom events
+export const trackEvent = (category, action, label = null, value = null) => {
+  const eventParams = {
+    category,
+    action,
+  };
+  
+  if (label) eventParams.label = label;
+  if (value !== null) eventParams.value = value;
+  
+  ReactGA.event(eventParams);
+};
+
+// Track user login
+export const trackLogin = (method) => {
   ReactGA.event({
-    action: eventName,
-    category: eventData.category || 'engagement',
-    label: eventData.label,
-    value: eventData.value
+    category: 'User',
+    action: 'Login',
+    label: method, // 'email' or 'google'
   });
 };
 
-export const trackConversion = (conversionType, value = 1) => {
+// Track user registration
+export const trackRegistration = (method) => {
   ReactGA.event({
-    action: conversionType,
-    category: 'conversion',
-    value: value
+    category: 'User',
+    action: 'Registration',
+    label: method,
   });
 };
 
-export const setUserProperties = (userId, properties = {}) => {
-  ReactGA.set({
-    userId: userId,
-    ...properties
+// Track contact form submission
+export const trackContactSubmission = () => {
+  ReactGA.event({
+    category: 'Engagement',
+    action: 'Contact Form Submission',
+  });
+};
+
+// Track section views
+export const trackSectionView = (sectionName) => {
+  ReactGA.event({
+    category: 'Engagement',
+    action: 'Section View',
+    label: sectionName,
+  });
+};
+
+// Track document downloads
+export const trackDownload = (documentName) => {
+  ReactGA.event({
+    category: 'Engagement',
+    action: 'Document Download',
+    label: documentName,
   });
 };
