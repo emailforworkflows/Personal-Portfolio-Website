@@ -18,6 +18,7 @@ import AccessibilityWidget from "./components/AccessibilityWidget";
 
 // Pages
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import GDPRPolicy from "./pages/GDPRPolicy";
 import AccessibilityPage from "./pages/AccessibilityPage";
 
 // Portfolio Home Page
