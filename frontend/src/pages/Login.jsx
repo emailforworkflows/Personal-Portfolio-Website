@@ -262,7 +262,7 @@ const Login = () => {
           <div className="mt-6 text-center text-sm text-slate-600">
             {isRegister ? (
               <>
-                Already have an account?{' '}
+                Already have an account?{" "}
                 <button
                   onClick={() => setIsRegister(false)}
                   className="text-blue-600 hover:text-blue-700 font-medium"
@@ -272,7 +272,7 @@ const Login = () => {
               </>
             ) : (
               <>
-                Don't have an account?{' '}
+                {"Don't have an account?"}{" "}
                 <button
                   onClick={() => setIsRegister(true)}
                   className="text-blue-600 hover:text-blue-700 font-medium"

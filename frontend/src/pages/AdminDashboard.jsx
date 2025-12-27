@@ -66,7 +66,11 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     if (isAdmin) {
-      Promise.all([fetchContacts(), fetchUsers()]).finally(() => setLoading(false));
+      let isMounted = true;
+      Promise.all([fetchContacts(), fetchUsers()]).finally(() => {
+        if (isMounted) setLoading(false);
+      });
+      return () => { isMounted = false; };
     }
   }, [isAdmin, fetchContacts, fetchUsers]);
 
