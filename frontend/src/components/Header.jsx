@@ -313,6 +313,18 @@ const Header = ({ activeSection, onPrint }) => {
               >
                 {highContrast ? <Moon size={18} /> : <Sun size={18} />}
               </button>
+              {/* Print Button Mobile */}
+              {onPrint && (
+                <button
+                  onClick={() => { onPrint(); setIsMobileMenuOpen(false); }}
+                  className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
+                  aria-label={t('header.print')}
+                >
+                  <Printer size={18} />
+                </button>
+              )}
+              {/* Language Switcher Mobile */}
+              <LanguageSwitcher compact />
             </div>
 
             <div className="flex flex-col space-y-1">
