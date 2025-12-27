@@ -27,6 +27,7 @@ import CookieConsent from "./components/CookieConsent";
 import AccessibilityWidget from "./components/AccessibilityWidget";
 import AuthCallback from "./components/AuthCallback";
 import PrintResume from "./components/PrintResume";
+import FloatingMenu from "./components/FloatingMenu";
 
 // Pages
 import PrivacyPolicy from "./pages/PrivacyPolicy";
