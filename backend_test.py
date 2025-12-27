@@ -407,6 +407,10 @@ class BackendTester:
         
         # Test password reset
         self.test_password_reset_request()
+        self.test_password_reset_confirm()
+        
+        # Test OAuth session
+        self.test_oauth_session()
         
         # Test admin endpoints
         self.test_admin_contacts()
