@@ -634,11 +634,18 @@ async def get_contact_submissions():
 # Include router
 app.include_router(api_router)
 
-# CORS middleware
+# CORS middleware - when using credentials, must specify exact origins (not *)
+# For production, the preview URL will be allowed. For local dev, localhost is included.
+ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost",
+    "https://productgtm.preview.emergentagent.com",
+]
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_methods=["*"],
     allow_headers=["*"],
 )
