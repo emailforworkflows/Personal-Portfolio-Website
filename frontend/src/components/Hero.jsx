@@ -1,9 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, Mail, Phone, Linkedin, TrendingUp, Award, Globe, Users } from 'lucide-react';
 import { profileData, aboutMe } from '../data/mock';
 import { Button } from './ui/button';
 
 const Hero = () => {
+  const { t } = useTranslation();
+  
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -34,13 +37,13 @@ const Hero = () => {
             <h1 id="hero-heading" className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
               {profileData.name}
             </h1>
-            <p className="text-xl text-blue-700 font-semibold mb-2">{profileData.title}</p>
-            <p className="text-slate-600 mb-4">{profileData.tagline}</p>
+            <p className="text-xl text-blue-700 font-semibold mb-2">{t('hero.title')}</p>
+            <p className="text-slate-600 mb-4">{t('hero.subtitle')}</p>
             
             <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6">
               <span className="flex items-center">
                 <MapPin size={16} className="mr-1" />
-                {profileData.location}
+                {t('hero.location')}
               </span>
               <a href={`mailto:${profileData.email}`} className="flex items-center hover:text-blue-600">
                 <Mail size={16} className="mr-1" />
@@ -54,7 +57,7 @@ const Hero = () => {
             
             <div className="flex gap-3">
               <Button onClick={scrollToContact} className="bg-blue-600 hover:bg-blue-700 text-white">
-                Contact Me
+                {t('hero.contactMe')}
               </Button>
               <a
                 href={profileData.linkedIn}
@@ -63,7 +66,7 @@ const Hero = () => {
                 className="inline-flex items-center px-4 py-2 border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition-colors"
               >
                 <Linkedin size={18} className="mr-2" />
-                LinkedIn
+                {t('hero.linkedIn')}
               </a>
             </div>
           </div>
@@ -71,7 +74,7 @@ const Hero = () => {
 
         {/* About Me Section */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-1">About Me</h2>
+          <h2 className="text-2xl font-bold text-slate-900 mb-1">{t('about.title')}</h2>
           <div className="w-12 h-1 bg-slate-900 mb-6"></div>
           
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
@@ -81,7 +84,7 @@ const Hero = () => {
             
             {/* What Drives Me */}
             <div className="border-l-4 border-orange-400 bg-orange-50 p-5 rounded-r-lg mb-6">
-              <h3 className="font-bold text-slate-900 mb-2">What Drives Me</h3>
+              <h3 className="font-bold text-slate-900 mb-2">{t('about.whatDrivesMe')}</h3>
               <p className="text-slate-700 italic">
                 {aboutMe.whatDrivesMe}
               </p>
