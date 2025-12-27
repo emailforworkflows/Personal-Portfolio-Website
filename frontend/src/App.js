@@ -82,6 +82,7 @@ function App() {
         <Routes>
           <Route path="/" element={<PortfolioHome />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/gdpr-policy" element={<GDPRPolicy />} />
           <Route path="/accessibility" element={<AccessibilityPage />} />
         </Routes>
       </BrowserRouter>
