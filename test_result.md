@@ -189,15 +189,18 @@ backend:
 
   - task: "Admin Users API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Admin-only endpoints for viewing/managing users"
+        - working: true
+          agent: "testing"
+          comment: "Admin Users API tested with admin user - successfully retrieves user list, properly enforces admin role requirement. Admin access control working correctly."
 
   - task: "Contact Form API"
     implemented: true
