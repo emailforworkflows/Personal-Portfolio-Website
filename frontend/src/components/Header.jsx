@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Linkedin, Mail, Phone, Minus, Plus, Sun, Moon, User, LogIn } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Menu, X, Linkedin, Mail, Phone, Minus, Plus, Sun, Moon, User, LogIn, Printer } from 'lucide-react';
 import { profileData } from '../data/mock';
 import { useAuth } from '../context/AuthContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
-const Header = ({ activeSection }) => {
+const Header = ({ activeSection, onPrint }) => {
+  const { t } = useTranslation();
   const { user, isAuthenticated } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,14 +19,14 @@ const Header = ({ activeSection }) => {
   });
 
   const navItems = [
-    { id: 'about', label: 'About Me' },
-    { id: 'qualifications', label: 'Qualifications & Certifications' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Work Experience' },
-    { id: 'work-samples', label: 'Work Samples' },
-    { id: 'case-studies', label: 'Case Studies' },
-    { id: 'whitepapers', label: 'Whitepapers' },
-    { id: 'contact', label: 'Contact Me' }
+    { id: 'about', label: t('nav.aboutMe') },
+    { id: 'qualifications', label: t('nav.qualifications') },
+    { id: 'skills', label: t('nav.skills') },
+    { id: 'experience', label: t('nav.workExperience') },
+    { id: 'work-samples', label: t('nav.workSamples') },
+    { id: 'case-studies', label: t('nav.caseStudies') },
+    { id: 'whitepapers', label: t('nav.whitepapers') },
+    { id: 'contact', label: t('nav.contactMe') }
   ];
 
   const fontSizes = ['small', 'medium', 'large', 'xlarge'];
