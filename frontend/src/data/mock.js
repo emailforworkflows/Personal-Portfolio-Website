@@ -8,7 +8,7 @@ export const profileData = {
   email: "kumarforpm@outlook.com",
   phone: "+91 9873966405",
   linkedIn: "https://app.emergent.sh/register?ref=kuma647652",
-  photo: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/lwjzem7n_Screenshot_20251120-091942_Lightroom.jpg",
+  photo: "https://customer-assets.emergentagent.com/job_e7560ab7-e978-4570-9123-84c8e82a9de5/artifacts/f267hvfl_Kumar_Abhinav%20a.jpg",
   location: "Delhi, India",
   born: "Visakhapatnam, Andhra Pradesh",
   background: "Defense Family Heritage"
