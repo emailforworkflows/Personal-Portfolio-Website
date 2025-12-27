@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "aboutMe": "About Me",
+    "qualifications": "Qualifications & Certifications",
+    "skills": "Skills",
+    "workExperience": "Work Experience",
+    "workSamples": "Work Samples",
+    "caseStudies": "Case Studies",
+    "whitepapers": "Whitepapers",
+    "contactMe": "Contact Me"
+  },
+  "header": {
+    "signIn": "Sign In",
+    "print": "Print Resume",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Product Management Executive",
+    "subtitle": "End-to-End Product Development | Go-to-Market Strategy | €50M+ Business Impact",
+    "location": "Delhi, India",
+    "contactMe": "Contact Me",
+    "linkedIn": "LinkedIn"
+  },
+  "about": {
+    "title": "About Me",
+    "whatDrivesMe": "What Drives Me",
+    "globalPerspective": "Global Perspective",
+    "highlights": "Key Highlights"
+  },
+  "qualifications": {
+    "title": "Qualifications & Certifications",
+    "education": "Education",
+    "certifications": "Professional Certifications"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "present": "Present"
+  },
+  "workSamples": {
+    "title": "Work Samples",
+    "brochures": "Product Brochures",
+    "wireframes": "UX Wireframes",
+    "viewPdf": "View PDF",
+    "viewDetails": "View Details"
+  },
+  "caseStudies": {
+    "title": "Case Studies",
+    "impact": "Impact"
+  },
+  "whitepapers": {
+    "title": "Whitepapers",
+    "downloadPdf": "Download PDF"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Let's Connect",
+    "description": "Have a question or want to discuss a potential collaboration? Feel free to reach out.",
+    "name": "Your Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "gdprPolicy": "GDPR Policy",
+    "accessibility": "Accessibility"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "close": "Close",
+    "viewMore": "View More",
+    "viewLess": "View Less"
+  },
+  "print": {
+    "title": "Resume - Kumar Abhinav",
+    "generatedOn": "Generated on"
+  }
+}

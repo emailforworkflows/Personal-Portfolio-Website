@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "aboutMe": "मेरे बारे में",
+    "qualifications": "योग्यता और प्रमाणपत्र",
+    "skills": "कौशल",
+    "workExperience": "कार्य अनुभव",
+    "workSamples": "कार्य नमूने",
+    "caseStudies": "केस स्टडीज",
+    "whitepapers": "व्हाइटपेपर",
+    "contactMe": "संपर्क करें"
+  },
+  "header": {
+    "signIn": "साइन इन",
+    "print": "रिज्यूमे प्रिंट करें",
+    "language": "भाषा"
+  },
+  "hero": {
+    "title": "प्रोडक्ट मैनेजमेंट एक्जीक्यूटिव",
+    "subtitle": "एंड-टू-एंड प्रोडक्ट डेवलपमेंट | गो-टू-मार्केट स्ट्रैटेजी | €50M+ बिजनेस इम्पैक्ट",
+    "location": "दिल्ली, भारत",
+    "contactMe": "संपर्क करें",
+    "linkedIn": "लिंक्डइन"
+  },
+  "about": {
+    "title": "मेरे बारे में",
+    "whatDrivesMe": "मुझे क्या प्रेरित करता है",
+    "globalPerspective": "वैश्विक दृष्टिकोण",
+    "highlights": "मुख्य उपलब्धियां"
+  },
+  "qualifications": {
+    "title": "योग्यता और प्रमाणपत्र",
+    "education": "शिक्षा",
+    "certifications": "व्यावसायिक प्रमाणपत्र"
+  },
+  "skills": {
+    "title": "कौशल"
+  },
+  "experience": {
+    "title": "कार्य अनुभव",
+    "present": "वर्तमान"
+  },
+  "workSamples": {
+    "title": "कार्य नमूने",
+    "brochures": "प्रोडक्ट ब्रोशर",
+    "wireframes": "UX वायरफ्रेम",
+    "viewPdf": "PDF देखें",
+    "viewDetails": "विवरण देखें"
+  },
+  "caseStudies": {
+    "title": "केस स्टडीज",
+    "impact": "प्रभाव"
+  },
+  "whitepapers": {
+    "title": "व्हाइटपेपर",
+    "downloadPdf": "PDF डाउनलोड करें"
+  },
+  "contact": {
+    "title": "संपर्क करें",
+    "subtitle": "आइए जुड़ें",
+    "description": "कोई प्रश्न है या संभावित सहयोग पर चर्चा करना चाहते हैं? संपर्क करें।",
+    "name": "आपका नाम",
+    "email": "ईमेल पता",
+    "phone": "फोन नंबर",
+    "subject": "विषय",
+    "message": "आपका संदेश",
+    "send": "संदेश भेजें",
+    "sending": "भेज रहा है...",
+    "success": "संदेश सफलतापूर्वक भेजा गया!",
+    "error": "संदेश भेजने में विफल। कृपया पुनः प्रयास करें।"
+  },
+  "footer": {
+    "rights": "सर्वाधिकार सुरक्षित।",
+    "privacyPolicy": "गोपनीयता नीति",
+    "gdprPolicy": "GDPR नीति",
+    "accessibility": "पहुंच"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "close": "बंद करें",
+    "viewMore": "और देखें",
+    "viewLess": "कम देखें"
+  },
+  "print": {
+    "title": "रिज्यूमे - कुमार अभिनव",
+    "generatedOn": "जनरेट किया गया"
+  }
+}
