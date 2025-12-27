@@ -93,7 +93,7 @@ const Header = ({ activeSection, onPrint }) => {
           {/* Logo/Name */}
           <button
             onClick={() => scrollToSection('about')}
-            className="flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded"
+            className="flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded mr-8"
             aria-label="Go to top"
           >
             <span className="text-base md:text-lg font-semibold text-slate-900">
@@ -102,7 +102,7 @@ const Header = ({ activeSection, onPrint }) => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
+          <nav className="hidden xl:flex items-center space-x-2" role="navigation" aria-label="Main navigation">
             {navItems.map((item) => (
               <button
                 key={item.id}
