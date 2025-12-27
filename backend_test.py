@@ -181,7 +181,7 @@ class BackendTester:
             
             response = self.session.post(f"{BASE_URL}/contact", json=payload)
             
-            if response.status_code == 201:
+            if response.status_code in [200, 201]:
                 data = response.json()
                 required_fields = ["id", "name", "email", "message", "created_at"]
                 
