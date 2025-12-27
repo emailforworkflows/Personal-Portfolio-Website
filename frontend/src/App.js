@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
+// Context
+import { AuthProvider } from "./context/AuthContext";
+
+// Analytics
+import { initGA, trackPageView } from "./utils/analytics";
 
 // Components
 import Header from "./components/Header";
@@ -15,11 +21,29 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
 import AccessibilityWidget from "./components/AccessibilityWidget";
+import AuthCallback from "./components/AuthCallback";
 
 // Pages
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GDPRPolicy from "./pages/GDPRPolicy";
 import AccessibilityPage from "./pages/AccessibilityPage";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+
+// Initialize Google Analytics
+initGA();
+
+// Analytics tracker component
+const AnalyticsTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
+
+  return null;
+};
 
 // Portfolio Home Page
 const PortfolioHome = () => {
@@ -75,17 +99,38 @@ const PortfolioHome = () => {
   );
 };
 
+// App Router component to handle session_id detection
+const AppRouter = () => {
+  const location = useLocation();
+
+  // Check URL fragment for session_id SYNCHRONOUSLY (before render)
+  // This prevents race conditions with OAuth callback
+  if (location.hash?.includes('session_id=')) {
+    return <AuthCallback />;
+  }
+
+  return (
+    <Routes>
+      <Route path="/" element={<PortfolioHome />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/gdpr-policy" element={<GDPRPolicy />} />
+      <Route path="/accessibility" element={<AccessibilityPage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/admin" element={<AdminDashboard />} />
+    </Routes>
+  );
+};
+
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<PortfolioHome />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/gdpr-policy" element={<GDPRPolicy />} />
-          <Route path="/accessibility" element={<AccessibilityPage />} />
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <AnalyticsTracker />
+          <AppRouter />
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
