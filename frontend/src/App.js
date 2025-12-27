@@ -106,6 +106,9 @@ const PortfolioHome = () => {
       <Footer />
       <CookieConsent />
       <AccessibilityWidget />
+      
+      {/* Print-only Resume Component */}
+      <PrintResume ref={printRef} />
     </>
   );
 };
