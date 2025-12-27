@@ -93,6 +93,9 @@ const PortfolioHome = () => {
       
       <Header activeSection={activeSection} onPrint={handlePrint} />
       
+      {/* Floating Quick Access Menu */}
+      <FloatingMenu onPrint={handlePrint} />
+      
       <main id="main-content">
         <Hero />
         <Qualifications />
