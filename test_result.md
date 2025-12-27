@@ -174,15 +174,18 @@ backend:
 
   - task: "Admin Contacts API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Admin-only endpoints for managing contact submissions"
+        - working: true
+          agent: "testing"
+          comment: "Admin Contacts API tested with admin user - successfully retrieves contact submissions, properly enforces admin role requirement. Created admin user testuser@example.com for testing."
 
   - task: "Admin Users API"
     implemented: true
