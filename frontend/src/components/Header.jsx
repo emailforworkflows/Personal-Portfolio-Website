@@ -278,13 +278,13 @@ const Header = ({ activeSection, onPrint }) => {
                   className="flex items-center justify-center gap-2 mx-4 px-4 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium"
                 >
                   <LogIn size={18} />
-                  Sign In
+                  {t('header.signIn')}
                 </Link>
               )}
             </div>
 
-            {/* Mobile Accessibility Controls */}
-            <div className="flex items-center justify-center gap-4 pb-4 mb-4 border-b border-slate-200">
+            {/* Mobile Accessibility + Print + Language Controls */}
+            <div className="flex items-center justify-center gap-3 pb-4 mb-4 border-b border-slate-200">
               <div className="flex items-center bg-slate-100 rounded-lg p-1">
                 <button
                   onClick={decreaseFontSize}
