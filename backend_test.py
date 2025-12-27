@@ -128,9 +128,10 @@ class BackendTester:
         """Test GET /api/auth/me"""
         print("\n=== Testing Auth Me API ===")
         
-        # Test without session token
+        # Test without session token (use a fresh session)
         try:
-            response = self.session.get(f"{BASE_URL}/auth/me")
+            fresh_session = requests.Session()
+            response = fresh_session.get(f"{BASE_URL}/auth/me")
             if response.status_code == 401:
                 self.log_result("Auth Me (No Token)", True, "Correctly returns 401 without session")
             else:
