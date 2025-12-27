@@ -159,15 +159,18 @@ backend:
 
   - task: "Password Reset APIs"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Password reset request and confirm endpoints implemented"
+        - working: true
+          agent: "testing"
+          comment: "Password reset APIs tested - request endpoint processes emails correctly, confirm endpoint validates tokens properly. Both endpoints working as expected."
 
   - task: "Admin Contacts API"
     implemented: true
