@@ -114,6 +114,13 @@ const Footer = () => {
                 Privacy Policy
               </Link>
               <Link
+                to="/gdpr-policy"
+                className="flex items-center text-slate-400 hover:text-white transition-colors text-sm"
+              >
+                <Shield size={14} className="mr-1" />
+                GDPR Policy
+              </Link>
+              <Link
                 to="/accessibility"
                 className="flex items-center text-slate-400 hover:text-white transition-colors text-sm"
               >
