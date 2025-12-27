@@ -90,7 +90,7 @@ const PortfolioHome = () => {
         Skip to main content
       </a>
       
-      <Header activeSection={activeSection} />
+      <Header activeSection={activeSection} onPrint={handlePrint} />
       
       <main id="main-content">
         <Hero />
