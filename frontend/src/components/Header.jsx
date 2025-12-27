@@ -118,10 +118,10 @@ const Header = ({ activeSection, onPrint }) => {
             ))}
           </nav>
 
-          {/* Desktop Right Side - Accessibility + Auth + Social */}
+          {/* Desktop Right Side - Accessibility + Print + Language + Auth + Social */}
           <div className="hidden xl:flex items-center space-x-2">
             {/* Accessibility Controls */}
-            <div className="flex items-center bg-slate-100 rounded-lg p-1 mr-2">
+            <div className="flex items-center bg-slate-100 rounded-lg p-1">
               <button
                 onClick={decreaseFontSize}
                 disabled={fontSize === 'small'}
@@ -150,8 +150,23 @@ const Header = ({ activeSection, onPrint }) => {
               {highContrast ? <Moon size={14} /> : <Sun size={14} />}
             </button>
 
+            {/* Print Button */}
+            {onPrint && (
+              <button
+                onClick={onPrint}
+                className="p-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
+                aria-label={t('header.print')}
+                title={t('header.print')}
+              >
+                <Printer size={14} />
+              </button>
+            )}
+
+            {/* Language Switcher */}
+            <LanguageSwitcher compact />
+
             {/* Divider */}
-            <div className="h-6 w-px bg-slate-200 mx-2"></div>
+            <div className="h-6 w-px bg-slate-200 mx-1"></div>
 
             {/* Auth Buttons */}
             {isAuthenticated ? (
