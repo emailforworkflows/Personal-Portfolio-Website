@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Linkedin, Mail, Phone, Minus, Plus, Sun, Moon } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, X, Linkedin, Mail, Phone, Minus, Plus, Sun, Moon, User, LogIn } from 'lucide-react';
 import { profileData } from '../data/mock';
+import { useAuth } from '../context/AuthContext';
 
 const Header = ({ activeSection }) => {
+  const { user, isAuthenticated } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [fontSize, setFontSize] = useState(() => {
@@ -106,55 +109,80 @@ const Header = ({ activeSection }) => {
                     ? 'text-blue-700 bg-blue-50'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
-                aria-current={activeSection === item.id ? 'page' : undefined}
               >
                 {item.label}
               </button>
             ))}
           </nav>
 
-          {/* Accessibility Controls - Desktop */}
-          <div className="hidden md:flex items-center space-x-2">
-            {/* Font Size Controls */}
-            <div className="flex items-center bg-slate-100 rounded-lg p-0.5" role="group" aria-label="Font size controls">
+          {/* Desktop Right Side - Accessibility + Auth + Social */}
+          <div className="hidden xl:flex items-center space-x-2">
+            {/* Accessibility Controls */}
+            <div className="flex items-center bg-slate-100 rounded-lg p-1 mr-2">
               <button
                 onClick={decreaseFontSize}
                 disabled={fontSize === 'small'}
-                className="p-1.5 rounded hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="p-1.5 rounded hover:bg-white disabled:opacity-40 transition-colors"
                 aria-label="Decrease font size"
-                title="Decrease font size"
               >
                 <Minus size={14} />
               </button>
-              <span className="px-1.5 text-xs font-medium text-slate-600">A</span>
+              <span className="px-2 text-xs font-medium text-slate-600">A</span>
               <button
                 onClick={increaseFontSize}
                 disabled={fontSize === 'xlarge'}
-                className="p-1.5 rounded hover:bg-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="p-1.5 rounded hover:bg-white disabled:opacity-40 transition-colors"
                 aria-label="Increase font size"
-                title="Increase font size"
               >
                 <Plus size={14} />
               </button>
             </div>
-
-            {/* Contrast Toggle */}
             <button
               onClick={() => setHighContrast(!highContrast)}
-              className={`p-2 rounded-lg transition-colors ${
-                highContrast
-                  ? 'bg-slate-900 text-white'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              className={`p-1.5 rounded-lg transition-colors ${
+                highContrast ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
               aria-label={highContrast ? 'Disable high contrast' : 'Enable high contrast'}
-              aria-pressed={highContrast}
-              title={highContrast ? 'Disable high contrast' : 'Enable high contrast'}
             >
               {highContrast ? <Moon size={14} /> : <Sun size={14} />}
             </button>
 
+            {/* Divider */}
+            <div className="h-6 w-px bg-slate-200 mx-2"></div>
+
+            {/* Auth Buttons */}
+            {isAuthenticated ? (
+              <Link
+                to="/dashboard"
+                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+              >
+                {user?.picture ? (
+                  <img
+                    src={user.picture}
+                    alt={user.name}
+                    className="w-6 h-6 rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
+                    <span className="text-xs font-medium text-white">
+                      {user?.name?.charAt(0).toUpperCase()}
+                    </span>
+                  </div>
+                )}
+                <span className="hidden 2xl:inline">{user?.name?.split(' ')[0]}</span>
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+              >
+                <LogIn size={16} />
+                <span>Sign In</span>
+              </Link>
+            )}
+
             {/* Social Links */}
-            <div className="flex items-center space-x-1 ml-1 pl-1 border-l border-slate-200">
+            <div className="flex items-center space-x-1 ml-2">
               <a
                 href={profileData.linkedIn}
                 target="_blank"
@@ -201,6 +229,42 @@ const Header = ({ activeSection }) => {
             role="navigation"
             aria-label="Mobile navigation"
           >
+            {/* Mobile Auth Button */}
+            <div className="pb-4 mb-4 border-b border-slate-200">
+              {isAuthenticated ? (
+                <Link
+                  to="/dashboard"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-blue-50 rounded-lg"
+                >
+                  {user?.picture ? (
+                    <img
+                      src={user.picture}
+                      alt={user.name}
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+                      <User size={16} className="text-white" />
+                    </div>
+                  )}
+                  <div>
+                    <p className="font-medium">{user?.name}</p>
+                    <p className="text-xs text-slate-500">View Dashboard</p>
+                  </div>
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 mx-4 px-4 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium"
+                >
+                  <LogIn size={18} />
+                  Sign In
+                </Link>
+              )}
+            </div>
+
             {/* Mobile Accessibility Controls */}
             <div className="flex items-center justify-center gap-4 pb-4 mb-4 border-b border-slate-200">
               <div className="flex items-center bg-slate-100 rounded-lg p-1">
