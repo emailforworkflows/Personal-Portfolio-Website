@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
+// i18n
+import "./i18n";
+
 // Context
 import { AuthProvider } from "./context/AuthContext";
 
