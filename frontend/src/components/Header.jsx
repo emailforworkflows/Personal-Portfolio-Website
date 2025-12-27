@@ -99,12 +99,12 @@ const Header = ({ activeSection }) => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center space-x-0.5" role="navigation" aria-label="Main navigation">
+          <nav className="hidden xl:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-2 py-2 text-xs font-medium rounded-lg transition-colors duration-200 whitespace-nowrap ${
+                className={`px-3 py-2 text-xs font-medium rounded-lg transition-colors duration-200 whitespace-nowrap ${
                   activeSection === item.id
                     ? 'text-blue-700 bg-blue-50'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
