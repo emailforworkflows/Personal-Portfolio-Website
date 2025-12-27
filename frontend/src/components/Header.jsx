@@ -195,12 +195,12 @@ const Header = ({ activeSection, onPrint }) => {
                 className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
               >
                 <LogIn size={16} />
-                <span>Sign In</span>
+                <span>{t('header.signIn')}</span>
               </Link>
             )}
 
             {/* Social Links */}
-            <div className="flex items-center space-x-1 ml-2">
+            <div className="flex items-center space-x-1 ml-1">
               <a
                 href={profileData.linkedIn}
                 target="_blank"
