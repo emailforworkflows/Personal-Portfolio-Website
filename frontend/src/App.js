@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useReactToPrint } from "react-to-print";
 
 // i18n
 import "./i18n";
@@ -25,6 +26,7 @@ import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
 import AccessibilityWidget from "./components/AccessibilityWidget";
 import AuthCallback from "./components/AuthCallback";
+import PrintResume from "./components/PrintResume";
 
 // Pages
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -51,6 +53,12 @@ const AnalyticsTracker = () => {
 // Portfolio Home Page
 const PortfolioHome = () => {
   const [activeSection, setActiveSection] = useState('about');
+  const printRef = useRef(null);
+
+  const handlePrint = useReactToPrint({
+    contentRef: printRef,
+    documentTitle: 'Kumar_Abhinav_Resume',
+  });
 
   useEffect(() => {
     const handleScroll = () => {
